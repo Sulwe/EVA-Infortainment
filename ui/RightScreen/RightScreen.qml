@@ -1,4 +1,7 @@
 import QtQuick 2.0
+import QtPositioning 6.8
+import QtLocation
+
 
 Rectangle {
     id: rightScreen
@@ -8,6 +11,21 @@ Rectangle {
         bottom: bottomBar.top
         right: parent.right
     }
-    color: "orange"
+
+    Plugin {
+            id: mapPlugin
+            name: "osm"
+        }
+
+    Map {
+         id: map
+         anchors.fill: parent
+         plugin: mapPlugin
+         center: QtPositioning.coordinate(4.04, 39.66) // Mombasa
+         zoomLevel: 14
+
+
+     }
+
     width: parent.width * 2/3
 }
