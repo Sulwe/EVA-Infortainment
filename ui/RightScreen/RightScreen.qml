@@ -21,8 +21,9 @@ Rectangle {
          id: map
          anchors.fill: parent
          plugin: mapPlugin
-         center: QtPositioning.coordinate(4.04, 39.66) // Mombasa
+         center: QtPositioning.coordinate(37.46, -122.14) // Palo Alto
          zoomLevel: 14
+
 
 
      }
