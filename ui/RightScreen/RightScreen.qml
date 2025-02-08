@@ -23,10 +23,66 @@ Rectangle {
          plugin: mapPlugin
          center: QtPositioning.coordinate(37.46, -122.14) // Palo Alto
          zoomLevel: 14
-
-
-
      }
+
+    Image {
+        id: lockIcon
+        anchors {
+            left: parent.left
+            top: parent.top
+            margins: 20
+        }
+
+        width: parent.width / 40
+        fillMode: Image.PreserveAspectFit
+        source: (systemHandler.carLocked ? "/ui/assets/lock.png" : "/ui/assets/unlock.png")
+        MouseArea {
+            anchors.fill: parent
+            onClicked: systemHandler.setCarLocked(!systemHandler.carLocked)
+        }
+    }
+
+    Text {
+        id: dateTimeDisplay
+        anchors {
+            left: lockIcon.right
+            leftMargin: 40
+            bottom: lockIcon.bottom
+        }
+        font.pixelSize: 14
+        font.bold: true
+        color: "black"
+
+        text: systemHandler.currentTime
+    }
+
+    Text {
+        id: outdoorTemperatureDisplay
+        anchors {
+            left: dateTimeDisplay.right
+            leftMargin: 40
+            bottom: lockIcon.bottom
+        }
+        font.pixelSize: 14
+        font.bold: true
+        color: "black"
+
+        text: systemHandler.outdoorTemp + "°F"
+    }
+
+    Text {
+        id: userNameDisplay
+        anchors {
+            left: outdoorTemperatureDisplay.right
+            leftMargin: 40
+            bottom: lockIcon.bottom
+        }
+        font.pixelSize: 14
+        font.bold: true
+        color: "black"
+
+        text: systemHandler.userName
+    }
 
     width: parent.width * 2/3
 }
