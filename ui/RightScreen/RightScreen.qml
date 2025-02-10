@@ -70,11 +70,24 @@ Rectangle {
         text: systemHandler.outdoorTemp + "°F"
     }
 
+    Image {
+        id: userIcon
+        anchors {
+            right: userNameDisplay.left
+            bottom: userNameDisplay.bottom
+            rightMargin: 5
+        }
+
+        width: parent.width / 40
+        fillMode: Image.PreserveAspectFit
+        source: "/ui/assets/user.png"
+    }
+
     Text {
         id: userNameDisplay
         anchors {
             left: outdoorTemperatureDisplay.right
-            leftMargin: 40
+            leftMargin: 55
             bottom: lockIcon.bottom
         }
         font.pixelSize: 14

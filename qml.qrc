@@ -8,5 +8,6 @@
         <file>ui/assets/carIcon.png</file>
         <file>ui/assets/lock.png</file>
         <file>ui/assets/unlock.png</file>
+        <file>ui/assets/user.png</file>
     </qresource>
 </RCC>
